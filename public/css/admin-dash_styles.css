@@ -1,0 +1,493 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 78px;
+  background: #212936;
+  padding: 6px 14px;
+  z-index: 3;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar .logo-details img {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details .logo_name {
+  color: white;
+  font-size: 20px;
+  font-family: "Manrope";
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details img,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  color: white;
+}
+
+.sidebar.open .logo-details #btn {
+  text-align: right;
+}
+
+.sidebar i {
+  color: #56657F;
+  height: 50px;
+  min-width: 50px;
+  font-size: 100px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.sidebar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  /* z-index: 3; */
+  background: white;
+  box-shadow: 0 5px 10px #55A5E9;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: "Roboto";
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+  display: none;
+}
+
+.sidebar input {
+  font-size: 15px;
+  color: black;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: white;
+}
+
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar .bx-search {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: white;
+  color: black;
+}
+
+.sidebar.open .bx-search:hover {
+  background: white;
+  color: black;
+}
+
+.sidebar .bx-search:hover {
+  background: white;
+  color: black;
+}
+
+.sidebar li a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: #212936;
+}
+
+.sidebar li a:hover {
+  background: #2B3648;
+}
+
+.sidebar li a .links_name {
+  color: #56657F;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Roboto";
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: #1976D2;
+}
+
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+
+.sidebar.open~.section-pedidos {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.section-pedidos {
+  position: relative;
+  background: #2B3648;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.section-clientes {
+  position: relative;
+  background: #2B3648;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.sections .text {
+  font-family: "Mulish";
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+  margin: 30px;
+  margin-top: 50px;
+  position: absolute;
+}
+
+.section-pedidos .contain-pedidos {
+	width: 20%;
+}
+
+.section-pedidos a {
+  float: left;
+  background-color: #212936;
+	width: 145px;
+	height: 130px;
+  border-radius: 10px;
+  margin: 115px 0px 0px 25px;
+  cursor: pointer;
+}
+.box-icon {
+  font-size: 80px;
+  color: #56657F;
+  text-align: center;
+  padding: 10px 30px 0px 32px;
+}
+.section-pedidos a p {
+  font-size: 17px;
+  color: #56657F;
+  font-family: "Roboto";
+  font-weight: 400;
+  text-align: center;
+  padding: 10px 10px 3px 17px;
+}
+
+.sections .section-pedidos a:hover {
+  float: left;
+  background-color: #1976D2;
+  width: 148px;
+	height: 133px;
+  border-radius: 10px;
+  margin: 113px 0px 0px 22px;
+  transition: all 0.2s ease;
+}
+.section-pedidos a:hover .box-icon,
+.section-pedidos a:hover p {
+  transition: all 0.5s ease;
+  color: #FFFFFF;
+}
+
+
+.section-pedidos .contain_section {
+  width: 20.35%;
+	float: left;
+}
+
+.box-section {
+  background-color: #212936;
+	width: 145px;
+	height: 130px;
+  border-radius: 10px;
+  margin: 115px 0px 0px 40px;
+}
+.box_cart {
+  font-size: 70px;
+  color: #56657F;
+  /* line-height: 30px; */
+  padding: 20px 35px 0px 30px;
+}
+.iconify {
+  font-size: 110px;
+  color: #56657F;
+  padding-left: 25px;
+  margin-top: -17px;
+  padding: 10px 12px 0px 48px;
+}    
+.box-section .number {
+  color: #56657F;
+  font-size: 20px;
+  font-family: "Roboto";
+  font-weight: 400;
+  padding: 0px 10px 0px 16px;
+  text-align: center;
+} 
+.box-section p {
+  font-size: 14px;
+  color: #56657F;
+  font-family: "Roboto";
+  font-weight: 400;
+  line-height: 30px;
+  padding: 12px 10px 1px 17px;
+  margin-top: -20px;
+  text-align: center;
+  
+}
+
+/* -------------- */
+/* POPUP */
+/* -------------- */
+/* .overlay {
+  background: rgb(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+.overlay.active {
+  visibility: visible
+}
+.popup {
+  background-color: #212936;
+  border-radius: 8px;
+  box-shadow: 0px 0px 30px 0px #313c4e;;
+  font-family: "Manrope";
+  padding: 5px;
+  text-align: center;
+  width: 600px;
+  height: 250px;
+  transition: 0.s ease all;
+  transform: scale(0.7);
+  opacity: 0;
+}
+.popup .btn-cerrar-popup {
+  font-size: 16px;
+  padding: 0px 3px 0px 568px;
+  color: white;
+
+}
+.popup .btn-cerrar-popup:hover {
+  transition: .3s ease all;
+  color: #56657F;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.popup h2 {
+  font-family: "Manrope";
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  display: inline-block;
+  line-height: 1em;
+}
+.popup .fecha {
+  font-family: "Mulish";
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.3125rem;
+  color: white;
+  width: 100%;
+  opacity: 0;
+}
+
+.popup p {
+  display: inline-block;
+  line-height: 1em;
+}
+.popup .contain-inputs h3 {
+  font-family: "Mulish";
+  font-size: 15px;
+  font-weight: 500;
+  display: block;
+  text-align: left;
+  margin-bottom: 0.3125rem;
+  color: white;
+  width: 100%;
+}
+.popup .contain-inputs .client i {
+  color: white;
+}
+.popup .contain-inputs .pedido i {
+  color: white;
+}
+.popup .contain-inputs{
+  opacity: 0;
+}
+.popup .contain-inputs .client .inputs-client {
+  font-family: "Mulish";
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.3125rem;
+  color: white;
+  width: 100%;
+}
+.popup .contain-inputs .client .inputs-client input{
+  display: inline-block;
+  line-height: 1em;
+}
+.popup .contain-inputs .pedido .inputs-pedidos {
+
+} */
+
+/* -------------- */
+/* ANIMATIONS */
+/* -------------- */
+
+/* .popup.active {
+  opacity: 1;
+  transform: scale(1);
+  transition: .3s ease all;
+}
+
+.popup.active .fecha{
+  animation: entradaFecha .8s ease .3s forwards;
+}
+
+.popup.active .contain-inputs{
+  animation: entradaClient .8s ease .3s forwards;
+}
+.popup.active form .btn-submit{
+  animation: entradaBtn .8s ease .3s forwards;
+}
+@keyframes entradaFecha {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes entradaClient {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes entradaBtn {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} */
+@media (max-width: 420px) {
+  .sidebar li .tooltip {
+    display: none;
+  }
+}
