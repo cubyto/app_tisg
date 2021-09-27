@@ -1,5 +1,11 @@
 $(function() {
     $('#input-order').submit(function(e) {
+
+        const f = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'PEN',
+            minimumFractionDigits:2
+        })
         const postData = {
             Cliente: $('#Cliente').val(),
             Telefono: $('#Telefono').val(),
@@ -9,13 +15,16 @@ $(function() {
             Codigo: $('#Codigo').val(),
             Cantidad: $('#Cantidad').val(),
             Precio: $('#Precio').val(),
-            user: $('#User').val(),
+            //Precio: f.format($('#Precio').val()),
+            User: $('#User').val(),
+            Date: $('#Date').val(),
         };
         $.post('../dev/dev_php/Register-order.php', postData, function (response) {
+            console.log(postData);
+            alert(response);
             $('#btn-cerrar-popup').on('click', function() {
-                $('#input-order').trigger('reset');
-                swal.fire(cancel)
-                alert('se envio la data')
+                //$('#input-order').trigger('reset');
+                //alert('se envio la data')
             });
             $('#Producto').val(null),
             $('#Codigo').val(null),

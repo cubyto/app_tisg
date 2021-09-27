@@ -38,7 +38,18 @@
   transform: scale(0.7);
   opacity: 0;
 }
-
+.popup.one{
+  background-color: #212936;
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px 5px #313c4e;
+  font-family: "Manrope";
+  padding: 5px;
+  width: 600px;
+  height: 150px;
+  transition: 0.s ease all;
+  transform: scale(0.7);
+  opacity: 0;
+}
 .popup .btn-cerrar-popup {
   font-size: 16px;
   line-height: 16px;

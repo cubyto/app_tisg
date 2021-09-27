@@ -1,15 +1,14 @@
 var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
-  overlay = document.getElementById('overlay'),
-  popup = document.getElementById('popup'),
+  overlay_order = document.getElementById('overlay-order'),
+  popup_order = document.getElementById('popup-order'),
   btnCerrarPopup = document.getElementById('btn-cerrar-popup');
-  forminput = document.getElementById('input-order').onsubmit;
 
 btnAbrirPopup.addEventListener('click', function(){
-  overlay.classList.add('active');
-  popup.classList.add('active');
+  overlay_order.classList.add('active');
+  popup_order.classList.add('active');
 });
 
 btnCerrarPopup.addEventListener('click', function(){
-    overlay.classList.remove('active');
-    popup.classList.remove('active');
+  overlay_order.classList.remove('active');
+  popup_order.classList.remove('active');
 });

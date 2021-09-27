@@ -204,7 +204,16 @@
   border-radius: 12px;
 }
 
-
+.sections .text {
+  font-family: "Mulish";
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+  margin: 30px;
+  margin-top: 50px;
+  position: absolute;
+}
 .sidebar.open~.section-pedidos {
   left: 250px;
   width: calc(100% - 250px);
@@ -232,22 +241,76 @@
   z-index: 2;
 }
 
-.sections .text {
-  font-family: "Mulish";
-  display: inline-block;
-  font-size: 25px;
-  font-weight: 400;
-  color: white;
-  margin: 30px;
-  margin-top: 50px;
-  position: absolute;
+.sidebar.open~.section-pedidos {
+  left: 250px;
+  width: calc(100% + 250px);
 }
 
-.section-pedidos .contain-pedidos {
+.sidebar.open~.section-clientes {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.section-pedidos {
+  position: relative;
+  background: #2B3648;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.section-clientes {
+  position: relative;
+  background: #2B3648;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.section-campañas {
+  position: relative;
+  background: #2B3648;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.section-consultoras {
+  position: relative;
+  background: #2B3648;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.section-nosotros {
+  position: relative;
+  background: #2B3648;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.sections .contain-pedidos {
 	width: 20%;
 }
 
-.section-pedidos a {
+.sections a {
   float: left;
   background-color: #212936;
 	width: 145px;
@@ -262,7 +325,7 @@
   text-align: center;
   padding: 10px 30px 0px 32px;
 }
-.section-pedidos a p {
+.sections a p {
   font-size: 17px;
   color: #56657F;
   font-family: "Roboto";
@@ -271,7 +334,7 @@
   padding: 10px 10px 3px 17px;
 }
 
-.sections .section-pedidos a:hover {
+.sections  a:hover {
   float: left;
   background-color: #1976D2;
   width: 148px;
@@ -280,14 +343,14 @@
   margin: 113px 0px 0px 22px;
   transition: all 0.2s ease;
 }
-.section-pedidos a:hover .box-icon,
-.section-pedidos a:hover p {
+.sections a:hover .box-icon,
+.sections a:hover p {
   transition: all 0.5s ease;
   color: #FFFFFF;
 }
 
 
-.section-pedidos .contain_section {
+.contain_section {
   width: 20.35%;
 	float: left;
 }
@@ -302,7 +365,6 @@
 .box_cart {
   font-size: 70px;
   color: #56657F;
-  /* line-height: 30px; */
   padding: 20px 35px 0px 30px;
 }
 .iconify {
@@ -329,163 +391,90 @@
   padding: 12px 10px 1px 17px;
   margin-top: -20px;
   text-align: center;
+}
+
+.sections .section-consultoras a {
+  float: left;
+  background-color: #212936;
+	width: 148px;
+	height: 133px;
+  border-radius: 10px;
+  margin: 115px 0px 0px 27px;
+  cursor: pointer;
+}
+.box-icon {
+  font-size: 85px;
+  color: #56657F;
+  text-align: center;
+  padding: 10px 32px 0px 34px;
+}
+.sections .section-consultoras a p {
+  font-size: 16px;
+  color: #56657F;
+  font-family: "Roboto";
+  font-weight: 400;
+  text-align: center;
+  padding: 0px 10px 0px 17px;
+}
+.sections .section-consultoras  a:hover {
+  float: left;
+  background-color: #1976D2;
+  width: 153px;
+	height: 137px;
+  border-radius: 10px;
+  margin: 113px 0px 0px 22px;
+  transition: all 0.2s ease;
+}
+.sections .section-consultoras a:hover .box-icon,
+.sections .section-consultoras a:hover p {
+  transition: all 0.5s ease;
+  color: #FFFFFF;
+}
+
+.sections .section-consultoras .contain_section {
+  width: 20.8%;
+	float: left;
+}
+
+.sections .section-consultoras .box-section {
+  background-color: #212936;
+	width: 148px;
+	height: 133px;
+  border-radius: 10px;
+  margin: 115px 0px 0px 40px;
+}
+.sections .section-consultoras .box_cart {
+  font-size: 70px;
+  color: #56657F;
+  padding: 20px 35px 0px 30px;
+}
+.sections .section-consultoras .iconify {
+  font-size: 110px;
+  color: #56657F;
+  padding-left: 25px;
+  margin-top: -17px;
+  padding: 10px 12px 0px 48px;
+}    
+.sections .section-consultoras .box-section .number {
+  color: #56657F;
+  font-size: 20px;
+  font-family: "Roboto";
+  font-weight: 400;
+  padding: 0px 5px 0px 16px;
+  text-align: center;
+} 
+.sections .section-consultoras .box-section p {
+  font-size: 14px;
+  color: #56657F;
+  font-family: "Roboto";
+  font-weight: 400;
+  line-height: 30px;
+  padding: 12px 5px 1px 10px;
+  margin-top: -20px;
+  text-align: center;
   
 }
 
-/* -------------- */
-/* POPUP */
-/* -------------- */
-/* .overlay {
-  background: rgb(0, 0, 0, 0.3);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-}
-.overlay.active {
-  visibility: visible
-}
-.popup {
-  background-color: #212936;
-  border-radius: 8px;
-  box-shadow: 0px 0px 30px 0px #313c4e;;
-  font-family: "Manrope";
-  padding: 5px;
-  text-align: center;
-  width: 600px;
-  height: 250px;
-  transition: 0.s ease all;
-  transform: scale(0.7);
-  opacity: 0;
-}
-.popup .btn-cerrar-popup {
-  font-size: 16px;
-  padding: 0px 3px 0px 568px;
-  color: white;
-
-}
-.popup .btn-cerrar-popup:hover {
-  transition: .3s ease all;
-  color: #56657F;
-  font-size: 18px;
-  line-height: 18px;
-}
-
-.popup h2 {
-  font-family: "Manrope";
-  font-size: 17px;
-  font-weight: 700;
-  color: white;
-  display: inline-block;
-  line-height: 1em;
-}
-.popup .fecha {
-  font-family: "Mulish";
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 0.3125rem;
-  color: white;
-  width: 100%;
-  opacity: 0;
-}
-
-.popup p {
-  display: inline-block;
-  line-height: 1em;
-}
-.popup .contain-inputs h3 {
-  font-family: "Mulish";
-  font-size: 15px;
-  font-weight: 500;
-  display: block;
-  text-align: left;
-  margin-bottom: 0.3125rem;
-  color: white;
-  width: 100%;
-}
-.popup .contain-inputs .client i {
-  color: white;
-}
-.popup .contain-inputs .pedido i {
-  color: white;
-}
-.popup .contain-inputs{
-  opacity: 0;
-}
-.popup .contain-inputs .client .inputs-client {
-  font-family: "Mulish";
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 0.3125rem;
-  color: white;
-  width: 100%;
-}
-.popup .contain-inputs .client .inputs-client input{
-  display: inline-block;
-  line-height: 1em;
-}
-.popup .contain-inputs .pedido .inputs-pedidos {
-
-} */
-
-/* -------------- */
-/* ANIMATIONS */
-/* -------------- */
-
-/* .popup.active {
-  opacity: 1;
-  transform: scale(1);
-  transition: .3s ease all;
-}
-
-.popup.active .fecha{
-  animation: entradaFecha .8s ease .3s forwards;
-}
-
-.popup.active .contain-inputs{
-  animation: entradaClient .8s ease .3s forwards;
-}
-.popup.active form .btn-submit{
-  animation: entradaBtn .8s ease .3s forwards;
-}
-@keyframes entradaFecha {
-  from {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes entradaClient {
-  from {
-    transform: translateX(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes entradaBtn {
-  from {
-    transform: translateX(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-} */
 @media (max-width: 420px) {
   .sidebar li .tooltip {
     display: none;

@@ -5,17 +5,17 @@
           mes  = fecha.getMonth(),
           año  = fecha.getFullYear();
   
-      var pDia  = document.getElementById('dia'), 
-          pMes  = document.getElementById('mes'),
-          pAño  = document.getElementById('año')
-  
-      pDia.textContent = dia;
-      
+      var cliDia  = document.getElementById('diaClient'), 
+          cliMes  = document.getElementById('mesClient'),
+          cliAño  = document.getElementById('añoClient')
+      cliDia.textContent = dia;
+
       var meses = ['01', '02', '03', '04', '05', '06', '07', '08',  '09', '10', '11',  '12'];
+      
+      cliMes.textContent = meses[mes];
   
-      pMes.textContent = meses[mes];
-  
-      pAño.textContent = año;
+      cliAño.textContent = año;
+
     };
   
     actualizarHora();
