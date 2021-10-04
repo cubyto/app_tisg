@@ -1,11 +1,5 @@
 $(function() {
     $('#input-order').submit(function(e) {
-
-        const f = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'PEN',
-            minimumFractionDigits:2
-        })
         const postData = {
             Cliente: $('#Cliente').val(),
             Telefono: $('#Telefono').val(),
@@ -15,7 +9,8 @@ $(function() {
             Codigo: $('#Codigo').val(),
             Cantidad: $('#Cantidad').val(),
             Precio: $('#Precio').val(),
-            //Precio: f.format($('#Precio').val()),
+            Precioofert: $('#Priceofert').val(),
+
             User: $('#User').val(),
             Date: $('#Date').val(),
         };
@@ -23,14 +18,12 @@ $(function() {
             console.log(postData);
             alert(response);
             $('#btn-cerrar-popup').on('click', function() {
-                //$('#input-order').trigger('reset');
-                //alert('se envio la data')
+                $('#input-order').trigger('reset');
             });
             $('#Producto').val(null),
             $('#Codigo').val(null),
             $('#Cantidad').val(null),
-            $('#Precio').val(null),
-            $('#User').val(null)
+            $('#Precio').val(null)
         });
         e.preventDefault();
     });
@@ -47,13 +40,13 @@ $(function() {
                 confirmButtonText: 'Yes, delete all!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $('#overlay').removeClass('active');
-                    $('#popup').removeClass('active')
+                    $('#overlay-order').removeClass('active');
+                    $('#popup-order').removeClass('active')
                     $('#input-order').trigger('reset');
                     
                 }else if(result.isDenied) {
-                    $('#overlay').addClass('active');
-                    $('#popup').addClass('active')
+                    $('#overlay-order').addClass('active');
+                    $('#popup-order').addClass('active')
                 }
             });
         });

@@ -8,7 +8,7 @@
         Confirmado = 'SI'
     ") or die($mysql->error);
     if(mysqli_num_rows($res) > 0){
-        header("Location: http://127.0.0.1/holi/public/admin_dash.php?User=$Nickname");
+        header("Location: http://127.0.0.1/apptisg/public/admin_dash.php?User=$Nickname");
     }else{
         echo 'sesion invalida';
     }

@@ -22,7 +22,7 @@ $message = '
   Correo: '.$Email.'
   ------------------------
   </p> Clic aqui:
-  <a href="http://127.0.0.1/app_tisg/public/auth.php?Email='.$Email.'"> Verificar cuenta </a>
+  <a href="http://127.0.0.1/apptisg/public/auth.php?Email='.$Email.'"> Verificar cuenta </a>
   <p>Tu codigo de verificacion es:</p>
  <h2>---'.$Codigo.'---</h2>
   

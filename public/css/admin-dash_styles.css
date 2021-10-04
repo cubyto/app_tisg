@@ -11,6 +11,21 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  width: 7px;
+  background: #2B3648;
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #1976D2;
+  border-radius: 20%;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -o-border-radius: 20%;
+}
+
 .sidebar {
   position: fixed;
   left: 0;
@@ -21,6 +36,10 @@
   padding: 6px 14px;
   z-index: 3;
   transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .sidebar.open {
@@ -37,6 +56,10 @@
 .sidebar .logo-details img {
   opacity: 0;
   transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .sidebar .logo-details .logo_name {
@@ -46,6 +69,10 @@
   font-weight: 700;
   opacity: 0;
   transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .sidebar.open .logo-details img,
@@ -59,12 +86,15 @@
   right: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  transition: all 0.4s ease;
   font-size: 23px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.5s ease;
   color: white;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .sidebar.open .logo-details #btn {
@@ -95,7 +125,6 @@
   position: absolute;
   top: -20px;
   left: calc(100% + 15px);
-  /* z-index: 3; */
   background: white;
   box-shadow: 0 5px 10px #55A5E9;
   padding: 6px 12px;
@@ -107,6 +136,10 @@
   white-space: nowrap;
   pointer-events: none;
   transition: 0s;
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -ms-transition: 0s;
+  -o-transition: 0s;
 }
 
 .sidebar li:hover .tooltip {
@@ -115,6 +148,10 @@
   transition: all 0.4s ease;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
 }
 
 .sidebar.open li .tooltip {
@@ -131,8 +168,12 @@
   width: 50px;
   border: none;
   border-radius: 12px;
-  transition: all 0.5s ease;
   background: white;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .sidebar.open input {
@@ -144,10 +185,14 @@
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
   font-size: 22px;
   background: white;
   color: black;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 .sidebar.open .bx-search:hover {
@@ -167,8 +212,12 @@
   border-radius: 12px;
   align-items: center;
   text-decoration: none;
-  transition: all 0.4s ease;
   background: #212936;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
 }
 
 .sidebar li a:hover {
@@ -184,6 +233,10 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
 }
 
 .sidebar.open li a .links_name {
@@ -195,6 +248,10 @@
 .sidebar li a:hover i {
   transition: all 0.5s ease;
   color: #1976D2;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .sidebar li i {
@@ -204,19 +261,73 @@
   border-radius: 12px;
 }
 
-.sections .text {
+.sidebar.open~.section-pedidos {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.sections .containerHeader {
+  line-height: center;
+}
+
+.sections .containerHeader .text {
   font-family: "Mulish";
   display: inline-block;
   font-size: 25px;
   font-weight: 400;
   color: white;
-  margin: 30px;
-  margin-top: 50px;
+  top: 45px;
+  margin: 0px 30px 50px 30px;
   position: absolute;
 }
-.sidebar.open~.section-pedidos {
+
+.sections .containerHeader .devider {
+  background-color: white;
+  position: absolute;
+  margin: 0px 10px 0px 50px;
+  top: 50px;
+  left: 645px;
+  width: 2px;
+  height: 30px;
+}
+
+.containerHeader .userItem {
+  position: absolute;
+  top: 50px;
+  left: 720px;
+}
+
+.containerHeader h1 {
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+}
+
+.containerHeader .userimg {
+  position: absolute;
+  top: 52px;
+  left: 815px;
+  height: 40px;
+  width: 40px;
+  margin: -6px 0px;
+  z-index: 5;
+}
+
+.userimg img {
+  height: 40px;
+  width: 40px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
+  border: 2px solid white;
+}
+
+.sidebar.open~.sections {
   left: 250px;
-  width: calc(100% - 250px);
+  width: calc(100% - 78px);
 }
 
 .section-pedidos {
@@ -226,8 +337,12 @@
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
-  transition: all 0.5s ease;
   z-index: 2;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .section-clientes {
@@ -237,40 +352,12 @@
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
-  transition: all 0.5s ease;
   z-index: 2;
-}
-
-.sidebar.open~.section-pedidos {
-  left: 250px;
-  width: calc(100% + 250px);
-}
-
-.sidebar.open~.section-clientes {
-  left: 250px;
-  width: calc(100% - 250px);
-}
-
-.section-pedidos {
-  position: relative;
-  background: #2B3648;
-  min-height: 100vh;
-  top: 0;
-  left: 78px;
-  width: calc(100% - 78px);
   transition: all 0.5s ease;
-  z-index: 2;
-}
-
-.section-clientes {
-  position: relative;
-  background: #2B3648;
-  min-height: 100vh;
-  top: 0;
-  left: 78px;
-  width: calc(100% - 78px);
-  transition: all 0.5s ease;
-  z-index: 2;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .section-campañas {
@@ -280,8 +367,12 @@
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
-  transition: all 0.5s ease;
   z-index: 2;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .section-consultoras {
@@ -291,8 +382,12 @@
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
-  transition: all 0.5s ease;
   z-index: 2;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .section-nosotros {
@@ -302,29 +397,35 @@
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
-  transition: all 0.5s ease;
   z-index: 2;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .sections .contain-pedidos {
-	width: 20%;
+  width: 20%;
 }
 
 .sections a {
   float: left;
   background-color: #212936;
-	width: 145px;
-	height: 130px;
+  width: 145px;
+  height: 130px;
   border-radius: 10px;
   margin: 115px 0px 0px 25px;
   cursor: pointer;
 }
+
 .box-icon {
   font-size: 80px;
   color: #56657F;
   text-align: center;
   padding: 10px 30px 0px 32px;
 }
+
 .sections a p {
   font-size: 17px;
   color: #56657F;
@@ -334,15 +435,20 @@
   padding: 10px 10px 3px 17px;
 }
 
-.sections  a:hover {
+.sections a:hover {
   float: left;
   background-color: #1976D2;
   width: 148px;
-	height: 133px;
+  height: 133px;
   border-radius: 10px;
   margin: 113px 0px 0px 22px;
   transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
 }
+
 .sections a:hover .box-icon,
 .sections a:hover p {
   transition: all 0.5s ease;
@@ -352,28 +458,31 @@
 
 .contain_section {
   width: 20.35%;
-	float: left;
+  float: left;
 }
 
 .box-section {
   background-color: #212936;
-	width: 145px;
-	height: 130px;
+  width: 145px;
+  height: 130px;
   border-radius: 10px;
   margin: 115px 0px 0px 40px;
 }
+
 .box_cart {
   font-size: 70px;
   color: #56657F;
   padding: 20px 35px 0px 30px;
 }
+
 .iconify {
   font-size: 110px;
   color: #56657F;
   padding-left: 25px;
   margin-top: -17px;
   padding: 10px 12px 0px 48px;
-}    
+}
+
 .box-section .number {
   color: #56657F;
   font-size: 20px;
@@ -381,7 +490,8 @@
   font-weight: 400;
   padding: 0px 10px 0px 16px;
   text-align: center;
-} 
+}
+
 .box-section p {
   font-size: 14px;
   color: #56657F;
@@ -396,18 +506,20 @@
 .sections .section-consultoras a {
   float: left;
   background-color: #212936;
-	width: 148px;
-	height: 133px;
+  width: 148px;
+  height: 133px;
   border-radius: 10px;
   margin: 115px 0px 0px 27px;
   cursor: pointer;
 }
+
 .box-icon {
   font-size: 85px;
   color: #56657F;
   text-align: center;
   padding: 10px 32px 0px 34px;
 }
+
 .sections .section-consultoras a p {
   font-size: 16px;
   color: #56657F;
@@ -416,45 +528,58 @@
   text-align: center;
   padding: 0px 10px 0px 17px;
 }
-.sections .section-consultoras  a:hover {
+
+.sections .section-consultoras a:hover {
   float: left;
   background-color: #1976D2;
   width: 153px;
-	height: 137px;
+  height: 137px;
   border-radius: 10px;
   margin: 113px 0px 0px 22px;
   transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
 }
+
 .sections .section-consultoras a:hover .box-icon,
 .sections .section-consultoras a:hover p {
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   color: #FFFFFF;
 }
 
 .sections .section-consultoras .contain_section {
   width: 20.8%;
-	float: left;
+  float: left;
 }
 
 .sections .section-consultoras .box-section {
   background-color: #212936;
-	width: 148px;
-	height: 133px;
+  width: 148px;
+  height: 133px;
   border-radius: 10px;
   margin: 115px 0px 0px 40px;
 }
+
 .sections .section-consultoras .box_cart {
   font-size: 70px;
   color: #56657F;
   padding: 20px 35px 0px 30px;
 }
+
 .sections .section-consultoras .iconify {
   font-size: 110px;
   color: #56657F;
   padding-left: 25px;
   margin-top: -17px;
   padding: 10px 12px 0px 48px;
-}    
+}
+
 .sections .section-consultoras .box-section .number {
   color: #56657F;
   font-size: 20px;
@@ -462,7 +587,8 @@
   font-weight: 400;
   padding: 0px 5px 0px 16px;
   text-align: center;
-} 
+}
+
 .sections .section-consultoras .box-section p {
   font-size: 14px;
   color: #56657F;
@@ -472,7 +598,6 @@
   padding: 12px 5px 1px 10px;
   margin-top: -20px;
   text-align: center;
-  
 }
 
 @media (max-width: 420px) {
@@ -480,3 +605,168 @@
     display: none;
   }
 }
+
+/* @media screen and (min-width: 1000px) {
+  .containerHeader .search-box {
+    left: 55%;
+  }
+
+  .sections .containerHeader .devider {
+    left: 74%;
+  }
+
+  .containerHeader .userItem {
+    left: 82%;
+  }
+
+  .containerHeader .userimg {
+    left: 92%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .containerHeader .search-box {
+    left: 40%;
+  }
+
+  .sections .containerHeader .devider {
+    left: 65%;
+  }
+
+  .containerHeader .userItem {
+    left: 76%;
+  }
+
+  .containerHeader .userimg {
+    left: 90%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .containerHeader .search-box {
+    left: 37%;
+  }
+
+  .sections .containerHeader .devider {
+    left: 64%;
+  }
+
+  .containerHeader .userItem {
+    left: 76%;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .containerHeader .search-box {
+    left: 34%;
+  }
+
+  .sections .containerHeader .devider {
+    left: 62%;
+  }
+
+}
+
+@media screen and (max-width: 750px) {
+  .containerHeader .search-box {
+    left: 32%;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .containerHeader .search-box {
+    left: 29%;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+  .containerHeader .search-box{
+    top: 110px;
+    left: 55%;
+  }
+  .sections .containerHeader .devider {
+    visibility: hidden;
+  }
+  .containerHeader .userItem {
+    left: 70%;
+  }
+
+  .containerHeader .userimg {
+    left: 87%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .containerHeader .search-box{
+    top: 110px;
+    left: 50%;
+  }
+  .sections .containerHeader .devider {
+    visibility: hidden;
+  }
+  .containerHeader .userItem {
+    left: 67%;
+  }
+
+  .containerHeader .userimg {
+    left: 86%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .section-pedidos {
+    width: calc(100% - 50px);
+  }
+  .section-clientes {
+    width: calc(100% - 50px);
+  }
+  .section-campañas {
+    width: calc(100% - 50px);
+  }
+  .section-consultoras {
+    width: calc(100% - 50px);
+  }
+  .section-nosotros {
+    width: calc(100% - 50px);
+  }
+  .containerHeader .search-box{
+    top: 110px;
+    left: 48%;
+  }
+  .containerHeader .userItem {
+    left: 66%;
+  }
+
+  .containerHeader .userimg {
+    left: 86%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .section-pedidos {
+    width: calc(100% - 1px);
+  }
+  .section-clientes {
+    width: calc(100% - 1px);
+  }
+  .section-campañas {
+    width: calc(100% - 1px);
+  }
+  .section-consultoras {
+    width: calc(100% - 1px);
+  }
+  .section-nosotros {
+    width: calc(100% - 1px);
+  }
+  .containerHeader .search-box{
+    top: 110px;
+    left: 48%;
+  }
+  .containerHeader .userItem {
+    left: 66%;
+  }
+
+  .containerHeader .userimg {
+    left: 86%;
+  }
+} */  

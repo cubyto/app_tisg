@@ -37,6 +37,10 @@
   transition: 0.s ease all;
   transform: scale(0.7);
   opacity: 0;
+  -webkit-transition: 0.s ease all;
+  -moz-transition: 0.s ease all;
+  -ms-transition: 0.s ease all;
+  -o-transition: 0.s ease all;
 }
 .popup.one{
   background-color: #212936;
@@ -45,23 +49,47 @@
   font-family: "Manrope";
   padding: 5px;
   width: 600px;
-  height: 150px;
+  height: 200px;
   transition: 0.s ease all;
   transform: scale(0.7);
   opacity: 0;
+  -webkit-transition: 0.s ease all;
+  -moz-transition: 0.s ease all;
+  -ms-transition: 0.s ease all;
+  -o-transition: 0.s ease all;
+}
+.popup.two{
+  background-color: #212936;
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px 5px #313c4e;
+  font-family: "Manrope";
+  padding: 5px;
+  width: 600px;
+  height: 250px;
+  transition: 0.s ease all;
+  transform: scale(0.7);
+  opacity: 0;
+  -webkit-transition: 0.s ease all;
+  -moz-transition: 0.s ease all;
+  -ms-transition: 0.s ease all;
+  -o-transition: 0.s ease all;
 }
 .popup .btn-cerrar-popup {
   font-size: 16px;
   line-height: 16px;
   padding: 0px 3px 0px 568px;
   color: white;
-
+  cursor: pointer;
 }
 .popup .btn-cerrar-popup:hover {
   transition: .3s ease all;
   color: #56657F;
   font-size: 18px;
   line-height: 18px;
+  -webkit-transition: .3s ease all;
+  -moz-transition: .3s ease all;
+  -ms-transition: .3s ease all;
+  -o-transition: .3s ease all;
 }
 
 

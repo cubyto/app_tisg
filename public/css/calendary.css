@@ -107,6 +107,10 @@
 
 .calendar-days div:hover span {
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    -webkit-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    -moz-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    -ms-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    -o-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }
 
 .calendar-days div span:nth-child(1),
@@ -197,7 +201,6 @@
     border-radius: 50%;
     display: grid;
     place-items: center;
-    margin: 0 10px;
     cursor: pointer;
 }
 
@@ -228,6 +231,10 @@
     visibility: visible;
     pointer-events: visible;
     transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
 }
 
 .month-list > div {
