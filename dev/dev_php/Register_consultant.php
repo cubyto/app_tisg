@@ -21,7 +21,8 @@ if (isset($_POST["Nombres"]) && isset($_POST["Apellidos"]) && isset($_POST["Tele
     $resConsult = $mysql->query("SELECT * FROM Consultoras WHERE 
             Nombres   = '$Nombres' AND
             Apellidos = '$Apellidos' AND
-            Telefono  = '$Telefono'
+            Telefono  = '$Telefono' AND
+            UserCon = '$User'
         ") or die($mysql->error);
     if (mysqli_num_rows($resConsult) == 0) {
         //Si no se insertaron anteriormente los datos los insertaremos ahora
@@ -31,13 +32,15 @@ if (isset($_POST["Nombres"]) && isset($_POST["Apellidos"]) && isset($_POST["Tele
                     Apellidos, 
                     Telefono,
                     Email,
-                    DateInsert_con) 
+                    DateInsert_con,
+                    UserCon) 
                 VALUES (
                     '" . $Nombres . "', 
                     '" . $Apellidos . "', 
                     '" . $Telefono . "', 
                     '" . $Email . "',
-                    '" . $Datesqlformat . "')";
+                    '" . $Datesqlformat . "',
+                    '" . $User . "')";
         //Verificamos si se inserto correctamente los datos
         $resultado = $mysql->query($query);
         if ($resultado == true) {

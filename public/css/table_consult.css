@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+:root{
+    --primary-color: white;
+    --secondary-color: #56657F;
+    --hover-color: #2196F3;
+    
+    --dt-status-available-color: greenyellow;
+    --dt-status-away-color: lightsalmon;
+    --dt-status-offline-color: lightgray;
+
+    --dt-padding: 12px;
+    --dt-padding-s: 6px;
+    --dt-padding-xs: 2px;
+
+    --dt-border-radius: 3px;
+
+    --dt-background-color-container: #313C4E;
+    --dt-border-color:var(--secondary-color);
+    --dt-bg-color: var(--hover-color);
+    --dt-text-color: var(--primary-color);
+    --dt-bg-active-button: var(--hover-color);
+    --dt-text-color-button: var(--primary-color);
+    --dt-text-color-active-button: var(--primary-color);
+    --dt-hover-cell-color: var(--hover-color);
+    --dt-even-row-color: var(--secondary-color);
+    --dt-focus-color: var(--hover-color);
+    --dt-input-background-color: var(--secondary-color);
+    --dt-input-color: var(--primary-color);
+}
+.material-icons{
+    font-size: 16px;
+}
+.tabConstainer-consult{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--dt-background-color-container);
+    border-radius: var(--dt-border-radius);
+    color: var(--dt-text-color);
+    position: absolute;
+    top: 275px;
+    left: 25px;
+    width: 820px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+
+.tabConstainer-consult .footer-consult {
+    background-color: #212936;
+}
+.tabConstainer-consult .footer-consult .button-share{
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+.tabConstainer-consult .footer-consult .button-share:hover{
+    color: #2196F3;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+.tabConstainer-consult .footer-consult .pages-consult{
+    background-color: #212936;
+    margin-left: auto;
+    margin-right: 0;
+    width: 50%;
+}
+.tabConstainer-consult .footer-consult .pages-consult ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+.tabConstainer-consult .footer-consult .pages-consult ul li{
+    display: inline-block;
+    margin: 0 var(--dt-padding-xs);
+}
+.tabConstainer-consult .footer-consult .pages-consult ul li button{
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--dt-text-color-button);
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: var(--dt-border-radius);
+    background: transparent;
+    cursor: pointer;
+}
+.tabConstainer-consult .footer-consult .pages-consult ul li button:hover{
+    background: var(--dt-bg-active-button);
+    color: var(--dt-text-color-active-button);
+}
+.tabConstainer-consult .footer-consult .pages-consult ul li span.active{
+    background-color:  var(--dt-bg-color);
+    border-radius: var(--dt-border-radius);
+}
+.tabConstainer-consult .footer-consult .pages-consult ul li button,
+.tabConstainer-consult .footer-consult .pages-consult ul li span,
+.tabConstainer-consult .header-tools .tools ul li button{
+    padding: var(--dt-padding-s) var(--dt-padding);
+}
+
+.tabConstainer-consult .datatable-consult{
+    border-collapse: collapse;
+    width: 100%;
+}
+.tabConstainer-consult .datatable-consult,
+.tabConstainer-consult .datatable-consult th,
+.tabConstainer-consult .datatable-consult td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.tabConstainer-consult .datatable-consult th{
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+}
+
+.tabConstainer-consult .datatable-consult td{
+    border-bottom: solid 1px var(--dt-border-color);
+}
+.tabConstainer-consult .datatable-consult tbody tr:nth-child(even){
+    background-color: var(--dt-even-row-color);
+}
+.tabConstainer-consult .datatable-consult tbody tr:hover{
+    background-color: var(--dt-hover-cell-color);
+}
+.tabConstainer-consult thead tr {
+    background-color: #212936;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.tabConstainer-consult .datatable-consult tbody tr .entregado::after,
+.tabConstainer-consult .datatable-consult tbody tr .pendiente::after,
+.tabConstainer-consult .datatable-consult tbody tr .cancelado::after{
+    display: inline-block;
+    vertical-align: middle;
+}
+.tabConstainer-consult .datatable-consult tbody tr .entregado::after{
+    content: 'Entregado';
+    color: var(--dt-status-entregado-color);
+}
+.tabConstainer-consult .datatable-consult tbody tr .pendiente::after{
+    content: 'Pendiente';
+    color: var(--dt-status-pendiente-color);
+}
+.tabConstainer-consult .datatable-consult tbody tr .cancelado::after{
+    content: 'Cancelado';
+    color: var(--dt-status-cancelado-color);
+}
+
+.tabConstainer-consult .datatable-consult tbody tr .entregado::before{
+    background-color: var(--dt-status-entregado-color);
+}
+.tabConstainer-consult .datatable-consult tbody tr .pendiente::before{
+    background-color: var(--dt-status-pendiente-color);
+}
+.tabConstainer-consult .datatable-consult tbody tr .cancelado::before{
+    background-color: var(--dt-status-cancelado-color);
+}

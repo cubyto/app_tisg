@@ -1,4 +1,7 @@
-$(function() {
+$(function() { 
+    let useritem  = $('#Useritem').text();
+    gettabOrders()
+    gettabOrderclients()
     $('#input-order').submit(function(e) {
         const postData = {
             Cliente: $('#Cliente').val(),
@@ -15,8 +18,10 @@ $(function() {
             Date: $('#Date').val(),
         };
         $.post('../dev/dev_php/Register-order.php', postData, function (response) {
-            console.log(postData);
             alert(response);
+            gettabOrders();
+            gettabClient();
+            gettabOrderclients();
             $('#btn-cerrar-popup').on('click', function() {
                 $('#input-order').trigger('reset');
             });
@@ -51,4 +56,106 @@ $(function() {
             });
         });
     });
+    function gettabClient() {
+        $.ajax({
+            url: '../dev/dev_php/Get-tab_client.php',
+            type: 'Post',
+            data: { useritem }, 
+            success: function (response) {
+                let tabOrders = JSON.parse(response);
+                let template = '';
+                tabOrders.forEach(tabOrders => {
+                    template += `
+                        <tr>
+                            <td>${tabOrders.id}</td>
+                            <td>${tabOrders.Nombre}</td>
+                            <td>${tabOrders.Telefono}</td>
+                            <td>${tabOrders.Actitud}</td>
+                            <td>${tabOrders.DateInsert_cli}</td>
+                            <td>
+                                <i class="btn-icon fas fa-edit"></i>
+                            </td>
+                            <td>
+                                <i class="btn-icon fas fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                        <script> const dtCli = new DataTableCli('#dataTableCli', [{
+                            id: 'btnShare',
+                            text: 'Share',
+                            icon: 'btn-share fas fa-share-alt'
+                            }]);
+                        dtCli.parseCli();</script>`
+                });
+                $('#tabClients').html(template);
+            }
+        })
+    }
+    function gettabOrders() {
+        let userOrder  = $('#Useritem').text();
+        $.ajax({
+            url: '../dev/dev_php/Get-tab_orders.php',
+            type: 'Post',
+            data: { userOrder }, 
+            success: function (response) {
+                let tabOrders = JSON.parse(response);
+                let template = '';
+                tabOrders.forEach(tabOrders => {
+                    template += `
+                        <tr>
+                            <td>${tabOrders.id}</td>
+                            <td>${tabOrders.Cliente}</td>
+                            <td>${tabOrders.Producto}</td>
+                            <td>${tabOrders.Code}</td>
+                            <td>${tabOrders.Cantidad}</td>
+                            <td>${tabOrders.Precio}</td>
+                            <td>${tabOrders.Precio_ofert}</td>
+                            <td>${tabOrders.Total}</td>
+                            <td><span class="entregado"></span></td>
+                            <td>${tabOrders.Fecha}</td>
+                            <td>
+                                <i class='btn-icon fas fa-edit'></i>
+                            </td>
+                            <td>
+                                <i class='btn-icon fas fa-trash-alt'></i>
+                            </td>
+                            </tr>
+                            <script>const dtPed = new DataTable('#dataTablePed', [{
+                                id: 'btnShare',
+                                text: 'Share',
+                                icon: 'btn-share fas fa-share-alt'
+                              }]);
+                              dtPed.parse();</script>
+                    `;
+                });
+                $('#tabOrders').html(template);
+            }
+        })
+    }
+    function gettabOrderclients() {
+        let tabUser  = $('#Useritem').text();
+        $.ajax({
+            url: '../dev/dev_php/Get-tab_clientorders.php',
+            type: 'Post',
+            data: { tabUser },
+            success: function (response) {
+                let tabOrders = JSON.parse(response);
+                let template = '';
+                tabOrders.forEach(tabOrders => {
+                    template += `
+                        <tr>
+                            <td>${tabOrders.id}</td>
+                            <td>${tabOrders.Cliente}</td>
+                            <td>${tabOrders.Telefono}</td>
+                        </tr>
+                        <script> const dtOrderCli = new DataTableOrderCli('#dataTableOrderCli', [{
+                            id: 'btnShare',
+                            text: 'Share',
+                            icon: 'btn-share fas fa-share-alt'
+                            }]);
+                        dtOrderCli.parseOrderCli();</script>`
+                });
+                $('#tabClients-order').html(template);
+            }
+        })
+    }
 });

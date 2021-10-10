@@ -66,9 +66,13 @@
   padding: 5px;
   width: 600px;
   height: 250px;
-  transition: 0.s ease all;
-  transform: scale(0.7);
   opacity: 0;
+  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transition: 0.s ease all;
   -webkit-transition: 0.s ease all;
   -moz-transition: 0.s ease all;
   -ms-transition: 0.s ease all;
@@ -175,12 +179,12 @@ input[type=number] {
   opacity: 1;
   transform: scale(1);
   transition: .3s ease all;
+  -webkit-transition: .3s ease all;
+  -moz-transition: .3s ease all;
+  -ms-transition: .3s ease all;
+  -o-transition: .3s ease all;
 }
-.popup.active {
-  opacity: 1;
-  transform: scale(1);
-  transition: .3s ease all;
-}
+
 .popup.active .fecha {
   animation: entradaFecha 1s ease .3s forwards;
 }

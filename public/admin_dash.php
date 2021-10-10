@@ -7,8 +7,9 @@ if (isset($_GET['User'])) {
         Username ='$User' AND
         Confirmado = 'SI'
     ") or die($mysql->error);
+    
   if (mysqli_num_rows($res) > 0) {
-    $RowPed = $mysql->query("SELECT * FROM Pedidos") or die($mysql->error);
+    $RowPed = $mysql->query("SELECT * FROM Pedidos WHERE UserPed = '$User'") or die($mysql->error);
     $NumPed = mysqli_num_rows($RowPed);
     
   } else {
@@ -32,18 +33,22 @@ if (isset($_GET['User'])) {
   <link rel="stylesheet" href="css/admin-dash_styles.css">
   <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" href="css/popup-order_clients.css">
   <link rel="stylesheet" href="css/input.css">
   <link rel="stylesheet" href="css/input-consultant.css">
   <link rel="stylesheet" href="css/input-product.css">
   <link rel="stylesheet" href="css/calendary.css">
   <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/table_orders.css">
+  <link rel="stylesheet" href="css/table_consult.css">
+  <link rel="stylesheet" href="css/tab-order_clients.css">
   <!-- icons and  -->
   <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel='stylesheet' href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
 </head>
 
 <body>
@@ -97,8 +102,8 @@ if (isset($_GET['User'])) {
         <span class="tooltip">Nosotros</span>
       </li>
       <li>
-        <a href="#">
-          <i class='bx bx-log-out'></i>
+        <a>
+          <i class='bx bx-log-out' id="logout-btn"></i>
           <span class="links_name">Log out</span>
         </a>
         <span class="tooltip">Log out</span>
@@ -112,7 +117,7 @@ if (isset($_GET['User'])) {
       <div class="containerHeader">
         <h1 class="text">Pedidos</h1>
         <div class="search-box">
-          <input class='input-search' type="text" placeholder="Type to search..">
+          <input class="input-search" type="text" placeholder="Type to search..">
           <div class="icon-search">
             <i class='fa fa-search'></i>
           </div>
@@ -124,7 +129,7 @@ if (isset($_GET['User'])) {
         </div>
         <div class="devider"></div>
         <div class="userItem">
-          <h1>
+          <h1 id="Useritem">
             <?php echo $User; ?>
           </h1>
         </div>
@@ -132,8 +137,8 @@ if (isset($_GET['User'])) {
           <img src="assets/images/userimg.jpg" alt="userimg">
         </div>
       </div>
-      <a id="btn-abrir-popup">
-        <i class="bx bxs-plus-circle box-icon"></i>
+      <a class="btn-div" id="btn-abrir-popup">
+        <i class="fi fi-rr-map-marker-plus box-icon"></i>
         <p>Añadir Pedido</p>
       </a>
       <div class="contain_section">
@@ -150,48 +155,47 @@ if (isset($_GET['User'])) {
           <p>Venta total</p>
         </div>
       </div>
-      <div class="calendar dark">
-        <div class="calendar-header">
-          <span class="month-picker" id="month-picker"></span>
-          <div class="year-picker">
-            <span class="year-change" id="prev-year">
-              <pre class='fas fa-angle-left'></pre>
-            </span>
-            <span id="year"></span>
-            <span class="year-change" id="next-year">
-              <pre class="fas fa-angle-right"></pre>
-            </span>
-          </div>
-        </div>
-        <div class="calendar-body">
-          <div class="calendar-week-day">
-            <div>Dom</div>
-            <div>Lun</div>
-            <div>Mar</div>
-            <div>Mier</div>
-            <div>Jue</div>
-            <div>Vie</div>
-            <div>Sab</div>
-          </div>
-          <div class="calendar-days"></div>
-        </div>
-        <div class="month-list"></div>
-      </div>
+      <a class="btn-div" id="btn-abrir-tabClient">
+        <i class="bx bxs-user-account box-icon"></i>
+        <p>Clientes</p>
+      </a><a class="btn-div" id="btn-abrir-calendary">
+        <i class="bx bxs-calendar box-icon"></i>
+        <p>Calendario</p>
+      </a>
+      <table id="dataTablePed" class="datatable-orders">
+        <thead>
+          <tr>
+            <th>Nro°</th>
+            <th>Cliente</th>
+            <th>Producto</th>
+            <th>Code</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Oferta</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tabOrders"></tbody>
+      </table>
     </section>
 
     <!--Section Clientes-->
     <section class="section-clientes" id="section-clientes">
       <div class="containerHeader">
         <h1 class="text">Clientes</h1>
-        <div class="search-box">
-          <input class='input-search' type="text" placeholder="Type to search..">
-          <div class="icon-search">
+        <div id="search_client" class="search-box">
+          <input id="inputClient" class='input-search' type="text" placeholder="Type to search..">
+          <div id="icon-client" class="icon-search">
             <i class='fa fa-search'></i>
           </div>
-          <div class="cancel-icon">
+          <div id="cancel-client" class="cancel-icon">
             <i class='fa fa-times'></i>
           </div>
-          <div class="search-data">
+          <div id="data-client" class="search-data">
           </div>
         </div>
         <div class="devider"></div>
@@ -204,8 +208,8 @@ if (isset($_GET['User'])) {
           <img src="assets/images/userimg.jpg" alt="userimg">
         </div>
       </div>
-      <a id="btn-abrir-popup-client">
-        <i class="bx bxs-plus-circle box-icon"></i>
+      <a class="btn-div" id="btn-abrir-popup-client">
+        <i class="fi fi-rr-map-marker-plus  box-icon"></i>
         <p>Añadir Cliente</p>
       </a>
       <div class="contain_section">
@@ -222,85 +226,22 @@ if (isset($_GET['User'])) {
           <p>Entregados total</p>
         </div>
       </div>
-      <div class="calendar dark">
-      </div>
-      <div class="datatable-container">
-        <table class="datatable">
-            <thead>
-                <tr>
-                    <th>Nro°</th>
-                    <th>Cliente</th>
-                    <th>Telefono</th>
-                    <th>Actitud</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Marcos Rivas</td>
-                    <td>945678213</td>
-                    <td>Puntual</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Lena Sanchez</td>
-                    <td>974159852</td>
-                    <td>Moroso</td>
-                    <td>2020/07/01</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Juan Perez</td>
-                    <td>985275456</td>
-                    <td>Bueno</td>
-                    <td>2019/05/01</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-            </tbody>
+      <!-- <div class="calendar dark">
+      </div> -->
+        <table id="dataTableCli" class="datatable">
+          <thead>
+            <tr>
+              <th>Nro°</th>
+              <th>Cliente</th>
+              <th>Telefono</th>
+              <th>Actitud</th>
+              <th>Date</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tabClients"></tbody>
         </table>
-        <div class="footer-tools">
-            <div class="pages">
-                <ul>
-                    <li><span class="active">1</span></li>
-                    <li><button>2</button></li>
-                    <li><button>3</button></li>
-                    <li><button>4</button></li>
-                    <li><span>...</span></li>
-                    <li><button>9</button></li>
-                    <li><button>10</button></li>
-                </ul>
-            </div>
-        </div>
-    </div>
     </section>
 
     <!--Section Campañas-->
@@ -335,15 +276,15 @@ if (isset($_GET['User'])) {
     <section class="section-consultoras" id="section-consultoras">
       <div class="containerHeader">
         <h1 class="text">Consultoras</h1>
-        <div class="search-box">
-          <input class='input-search' type="text" placeholder="Type to search..">
-          <div class="icon-search">
+        <div id="search_consult" class="search-box">
+          <input id="inputconsult" class='input-search' type="text" placeholder="Type to search..">
+          <div id="icon-consult" class="icon-search">
             <i class='fa fa-search'></i>
           </div>
-          <div class="cancel-icon">
+          <div id="cancel-consult" class="cancel-icon">
             <i class='fa fa-times'></i>
           </div>
-          <div class="search-data">
+          <div id="data-consult" class="search-data">
           </div>
         </div>
         <div class="devider"></div>
@@ -356,8 +297,8 @@ if (isset($_GET['User'])) {
           <img src="assets/images/userimg.jpg" alt="userimg">
         </div>
       </div>
-      <a id="btn-abrir-popup-consultant">
-        <i class="bx bxs-plus-circle box-icon"></i>
+      <a class="btn-div_consult" id="btn-abrir-popup-consultant">
+        <i class="fi fi-rr-map-marker-plus  box-icon"></i>
         <p>Añadir Consultora</p>
       </a>
       <div class="contain_section">
@@ -371,88 +312,27 @@ if (isset($_GET['User'])) {
         <div class="box-section">
           <i class="iconify" data-icon="ant-design:dollar-circle-filled"></i>
           <p class="number">248</p>
-          <p>Pendietes</p>
+          <p>Pendientes</p>
         </div>
       </div>
-      <div class="calendar dark">
-      </div>
-      <div class="datatable-container">
-        <table class="datatable">
-            <thead>
-                <tr>
-                    <th>Nro°</th>
-                    <th>Cliente</th>
-                    <th>Telefono</th>
-                    <th>Actitud</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Marcos Rivas</td>
-                    <td>945678213</td>
-                    <td>Puntual</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Lena Sanchez</td>
-                    <td>974159852</td>
-                    <td>Moroso</td>
-                    <td>2020/07/01</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Juan Perez</td>
-                    <td>985275456</td>
-                    <td>Bueno</td>
-                    <td>2019/05/01</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Alma Mater</td>
-                    <td>9635854183</td>
-                    <td>Malo</td>
-                    <td>2020/05/01</td>
-                </tr>
-            </tbody>
+      <!-- <div class="calendar dark">
+      </div> -->
+        <table id="dataTableCon" class="datatable-consult">
+          <thead>
+            <tr>
+              <th>Nro°</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Telefono</th>
+              <th>E-mail</th>
+              <th>Estado</th>
+              <th>Date</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tabConsult"></tbody>
         </table>
-        <div class="footer-tools">
-            <div class="pages">
-                <ul>
-                    <li><span class="active">1</span></li>
-                    <li><button>2</button></li>
-                    <li><button>3</button></li>
-                    <li><button>4</button></li>
-                    <li><span>...</span></li>
-                    <li><button>9</button></li>
-                    <li><button>10</button></li>
-                </ul>
-            </div>
-        </div>
-    </div>
     </section>
 
     <!--Section nosotros-->
@@ -636,6 +516,83 @@ if (isset($_GET['User'])) {
       </form>
     </div>
   </div>
+  <!-- POPUP TABCLIENT -->
+  <div class="overlay" id="overlay-tabClient">
+    <div class="contain_clients" id="tabclients">
+      <div class="tabclientsHeaders">
+        <h2>Tabla Clientes</h2>
+        <i id="btncloseContainClients" class="fas fa-times"></i>
+      </div>
+      <div id="dataTableOrderCli" class="datatable-tabClients">
+        <table id="tabOrderCli" class="datatable-order_clients">
+          <thead>
+            <tr>
+              <th>Nro°</th>
+              <th>Cliente</th>
+              <th>Telefono</th>
+            </tr>
+          </thead>
+          <tbody id="tabClients-order"></tbody>
+        </table>
+        <div class="footer-tabClients">
+          <div class="pages-order_clients">
+            <ul>
+              <li><span class="active">1</span></li>
+              <li><button>2</button></li>
+              <li><button>3</button></li>
+              <li><button>4</button></li>
+              <li><span>...</span></li>
+              <li><button>9</button></li>
+              <li><button>10</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- POPUP CALENDARY -->
+  <div class="overlay" id="overlay-calendary">
+    <div class="calendar" id="calendary">
+      <a id="btn-cerrar-calendary" class="btn-cerrar-calendary">
+        <i class="fas fa-times"></i>
+      </a>
+      <div class="calendar-header">
+        <span class="month-picker" id="month-picker"></span>
+        <div class="year-picker">
+          <span class="year-change" id="prev-year">
+            <pre class='fas fa-angle-left'></pre>
+          </span>
+          <span id="year"></span>
+          <span class="year-change" id="next-year">
+            <pre class="fas fa-angle-right"></pre>
+          </span>
+        </div>
+      </div>
+      <div class="calendar-body">
+        <div class="calendar-week-day">
+          <div>Dom</div>
+          <div>Lun</div>
+          <div>Mar</div>
+          <div>Mier</div>
+          <div>Jue</div>
+          <div>Vie</div>
+          <div>Sab</div>
+        </div>
+        <div class="calendar-days"></div>
+      </div>
+      <div class="month-list"></div>
+    </div>
+  </div>
+
+  <!-- Close account -->
+  <div class="closeaccount" id="closeaccount">
+    <div class="containHeader">
+      <h2>Log out</h2>
+      <i id="btncloselogout" class="fas fa-times"></i>
+    </div>
+    <a href="index.html">Cerrar cuenta</a>
+    <a href="login.html">Abrir sesion en otra cuenta</a>
+  </div>
   <script src="js/admin-dash_script.js"></script>
   <script src="js/popup.js"></script>
   <script src="js/popup_client.js"></script>
@@ -646,13 +603,21 @@ if (isset($_GET['User'])) {
   <script src="js/input.js"></script>
   <script src="js/calendary.js"></script>
   <script src="js/search.js"></script>
-  <!-- <script src="js/table.js"></script> -->
+  <script src="js/search_client.js"></script>
+  <script src="js/search_consult.js"></script>
+  <script src="js/popup-calendary.js"></script>
+  <script src="js/popup-client_orders.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
-  <script src="../dev/dev_js/input-client_ajax.js"></script>
   <script src="../dev/dev_js/input-order_ajax.js"></script>
+  <script src="js/table-config.js"></script>
+  <script src="js/table-config_orderclient.js"></script>
+  <script src="../dev/dev_js/input-client_ajax.js"></script>
+  <script src="js/table-config_client.js"></script>
   <script src="../dev/dev_js/input-consultant_ajax.js"></script>
+  <script src="js/table-config_consult.js"></script>
+  <!-- <script src="js/const.js"></script> -->
   <script src="../dev/dev_js/autocomplete-consult_ajax.js"></script>
   <script src="../dev/dev_js/Autocomplete-consult_ape.js"></script>
   <script src="../dev/dev_js/autocomplete-client_ajax.js"></script>

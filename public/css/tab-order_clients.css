@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-:root{
+:root{ 
     --primary-color: white;
     --secondary-color: #56657F;
     --hover-color: #2196F3;
@@ -30,43 +30,41 @@
 .material-icons{
     font-size: 16px;
 }
-.datatable-container{
+.datatable-tabClients{
     font-family: 'Noto Sans', sans-serif;
     background-color: var(--dt-background-color-container);
     border-radius: var(--dt-border-radius);
     color: var(--dt-text-color);
     position: absolute;
-    top: 275px;
-    left: 25px;
-    width: 570px;
-    margin: 0 auto;
+    top: 35px;
+    left: 18px;
+    width: 375px;
+    margin: 10px -5px;
     font-size: 12px;
 }
 
 
-.datatable-container .footer-tools {
-    background-color: #212936;
-    width: 100%;
+.datatable-tabClients .footer-tabClients {
+    background-color: #121b29e3;
+    width: 375px;
 }
-.datatable-container .footer-tools .pages{
-    background-color: #212936;
+.datatable-tabClients .footer-tabClients .pages-order_clients {
     margin-left: auto;
     margin-right: 0;
     width: 50%;
 }
-.datatable-container .footer-tools .pages ul{
+.datatable-tabClients .footer-tabClients .pages-order_clients ul {
     margin: 0;
     padding: 0;
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
 }
-.datatable-container .footer-tools .pages ul li{
+.datatable-tabClients .footer-tabClients .pages-order_clients ul li {
     display: inline-block;
     margin: 0 var(--dt-padding-xs);
 }
-.datatable-container .footer-tools .pages ul li button,
-.datatable-container .header-tools .tools ul li button{
+.datatable-tabClients .footer-tabClients .pages-order_clients ul li button {
     font-family: 'Noto Sans', sans-serif;
     color: var(--dt-text-color-button);
     width: 100%;
@@ -76,50 +74,47 @@
     background: transparent;
     cursor: pointer;
 }
-.datatable-container .footer-tools .pages ul li button:hover,
-.datatable-container .header-tools .tools ul li button:hover{
+.datatable-tabClients .footer-tabClients .pages-order_clients ul li button:hover {
     background: var(--dt-bg-active-button);
     color: var(--dt-text-color-active-button);
 }
-.datatable-container .footer-tools .pages ul li span.active{
+.datatable-tabClients .footer-tabClients .pages-order_clients ul li span.active{
     background-color:  var(--dt-bg-color);
     border-radius: var(--dt-border-radius);
 }
-.datatable-container .footer-tools .pages ul li button,
-.datatable-container .footer-tools .pages ul li span,
-.datatable-container .header-tools .tools ul li button{
+.datatable-tabClients .footer-tabClients .pages-order_clients ul li button,
+.datatable-tabClients .footer-tabClients .pages-order_clients ul li span{
     padding: var(--dt-padding-s) var(--dt-padding);
 }
 
-.datatable-container .datatable{
+.datatable-tabClients .datatable-order_clients{
     border-collapse: collapse;
     width: 100%;
 }
-.datatable-container .datatable,
-.datatable-container .datatable th,
-.datatable-container .datatable td{
+.datatable-tabClients .datatable-order_clients,
+.datatable-tabClients .datatable-order_clients th,
+.datatable-tabClients .datatable-order_clients td{
     padding: var(--dt-padding) var(--dt-padding);
 }
 
-.datatable-container .datatable th{
+.datatable-tabClients .datatable-order_clients th{
     font-weight: bolder;
     text-align: left;
     border-bottom: solid 1px var(--dt-border-color);
 }
 
-.datatable-container .datatable td{
+.datatable-tabClients .datatable-order_clients td{
     border-bottom: solid 1px var(--dt-border-color);
 }
-.datatable-container .datatable tbody tr:nth-child(even){
+.datatable-tabClients .datatable-order_clients tbody tr:nth-child(even){
     background-color: var(--dt-even-row-color);
 }
-.datatable-container .datatable tbody tr:hover{
+.datatable-tabClients .datatable-order_clients tbody tr:hover{
     background-color: var(--dt-hover-cell-color);
 }
-.datatable-container thead tr {
-    background-color: #212936;
+.datatable-tabClients thead tr {
+    background-color: #121b29e3;
     color: #ffffff;
     text-align: left;
     font-weight: bold;
-    width: 100%;
 }

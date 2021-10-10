@@ -7,7 +7,7 @@
     --dark-hover: #323048;
     --dark-text: #AFBDD1;
     /* --dark-text: #8997B1; */
-    
+
     --blue: #1976D2;
     --white: #FFFFFF;
 
@@ -33,15 +33,57 @@
 }
 
 .calendar {
-    height:290px;
-    width: 294px;
+    height: 310px;
+    width: 314px;
     background-color: var(--bg-main);
     border-radius: 20px;
-    padding: 20px;
+    padding: 5px;
     position: absolute;
     overflow: hidden;
     top: 115px;
-    right: 25px;
+    right: 15px;
+    box-shadow: 0px 0px 50px 5px #313c4e;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.calendar .btn-cerrar-calendary {
+    position: relative;
+    left: 250px;
+    cursor: pointer;
+    margin: 0px 0px 0px 25px;
+    color: #AFBDD1;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.calendar .btn-cerrar-calendary:hover {
+    color: #2196F3;
+    font-size: 17px;
+    margin: 0px 0px 0px 25px;
+}
+
+.calendar.dark {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
 }
 
 .light .calendar {
@@ -117,7 +159,7 @@
 .calendar-days div span:nth-child(3) {
     width: 2px;
     height: 0;
-    background-color: red;
+    background-color: #1976D2;
 }
 
 .calendar-days div:hover span:nth-child(1),
@@ -139,7 +181,7 @@
 .calendar-days div span:nth-child(4) {
     width: 0;
     height: 2px;
-    background-color: red;
+    background-color: #1976D2;
 }
 
 .calendar-days div:hover span:nth-child(2),
@@ -237,12 +279,12 @@
     -o-transition: all 0.2s ease-in-out;
 }
 
-.month-list > div {
+.month-list>div {
     display: grid;
     place-items: center;
 }
 
-.month-list > div > div {
+.month-list>div>div {
     width: 100%;
     padding: 5px 10px;
     border-radius: 10px;
@@ -251,7 +293,7 @@
     color: var(--color-txt);
 }
 
-.month-list > div > div:hover {
+.month-list>div>div:hover {
     background-color: var(--color-hover);
 }
 
@@ -260,6 +302,7 @@
         transform: translateY(100%);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;

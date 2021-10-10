@@ -39,7 +39,6 @@ if (isset($_POST["Cliente"]) && isset($_POST["Telefono"]) && isset($_POST["Actit
     //Verificamos si ya se inserto el cliente anteriormente
     $resClient = $mysql->query("SELECT * FROM Clientes WHERE 
             Nombre   = '$Cliente' AND
-            Telefono = '$Telefono' AND
             UserCli  = '$User'
         ") or die($mysql->error);
     if (mysqli_num_rows($resClient) == 0) {
@@ -49,14 +48,14 @@ if (isset($_POST["Cliente"]) && isset($_POST["Telefono"]) && isset($_POST["Actit
                     Nombre, 
                     Telefono,
                     Actitud,
-                    UserCli,
-                    DateInsert_cli) 
+                    DateInsert_cli, 
+                    UserCli)
                 VALUES (
                     '" . $Cliente . "', 
                     '" . $Telefono . "', 
                     '" . $Actitud . "', 
-                    '" . $User . "',
-                    '" . $Datesqlformat . "')";
+                    '" . $Datesqlformat . "',
+                    '" . $User . "')";
         //Verificamos si se inserto correctamente los datos
         $resultado = $mysql->query($query);
         $idClient = mysqli_insert_id($mysql);
@@ -76,8 +75,7 @@ if (isset($_POST["Cliente"]) && isset($_POST["Telefono"]) && isset($_POST["Actit
     //Verificamos si ya se inserto el producto anteriormente
     $resProduct = $mysql->query("SELECT * FROM Productos WHERE 
             Producto = '$Producto' AND
-            Code     = '$Codigo' and
-            Precio   = '$Precio'
+            Code     = '$Codigo'
         ") or die($mysql->error);
     if (mysqli_num_rows($resProduct) == 0) {
         //Si no se insertaron anteriormente los datos los insertaremos ahora
